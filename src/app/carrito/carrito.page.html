@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>🛍️ Mi Carrito</ion-title>
+    <ion-title> Mi Carrito</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -32,8 +32,8 @@
       <div class="cart-footer">
         <h3>Total: {{ total | currency }}</h3>
         <ion-button color="danger" (click)="clearCart()">🗑️ Vaciar Carrito</ion-button>
-        <ion-button color="success" (click)="checkout()">🛒 Comprar</ion-button>
-        <ion-button color="primary" (click)="goBack()">🔙 Regresar</ion-button>
+        <ion-button color="success" (click)="checkout()"><ion-icon name="bag-remove-outline"></ion-icon>   Comprar</ion-button>
+        <ion-button color="primary" (click)="goBack()"><ion-icon name="return-up-back-outline"></ion-icon></ion-button>
       </div>
     </ion-card-content>
   </ion-card>

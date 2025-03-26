@@ -6,9 +6,10 @@
 
 <ion-content>
   <form [formGroup]="registroForm" (ngSubmit)="guardarDatos()">
+    <div class="registro-container">
+      <ion-img src="assets/icon/logo.png" class="logo"></ion-img>
+    </div>
     <ion-list>
-
-
       <ion-item>
         <ion-input label="Nombre" placeholder="Introduce tu nombre" formControlName="nombre"></ion-input>
       </ion-item>
@@ -17,6 +18,15 @@
       </ion-text>
 
 
+      
+      
+      <ion-item>
+        <ion-input label="Email" type="email" placeholder="email@domain.com" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched">
+        Ingresa un email válido.
+      </ion-text>
+      
       <ion-item>
         <ion-input label="Contraseña" type="password" placeholder="Introduce tu contraseña" formControlName="password"></ion-input>
       </ion-item>
@@ -25,12 +35,6 @@
       </ion-text>
 
       
-      <ion-item>
-        <ion-input label="Email" type="email" placeholder="email@domain.com" formControlName="email"></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched">
-        Ingresa un email válido.
-      </ion-text>
 
       <!-- Teléfono (Solo Números, 10 Dígitos) -->
       <ion-item>

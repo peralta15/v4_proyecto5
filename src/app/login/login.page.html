@@ -1,25 +1,59 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Iniciar Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-list>
-    <ion-item>
-      <ion-input [(ngModel)]="email" label="Correo Electrónico" placeholder="CorleonesBarberShop@example.com"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-input [(ngModel)]= "password" label="Contraseña" labelPlacement="fixed" placeholder="adminCor"></ion-input>
-    </ion-item>
-  
- <ion-button routerLink = "/tabs/tab1" expand="full" (click)="ingresar()"> Ingresar </ion-button>
-  </ion-list>
-<ion-button routerLink = "/registro" expand="full">Registrar</ion-button>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="login-container">
+    <ion-img src="assets/icon/logo.png" class="logo" *ngIf="!isLoading"></ion-img>
+    
+    <form (ngSubmit)="ingresar()" class="ion-margin-top">
+      <ion-list>
+        <ion-item lines="full" class="ion-margin-bottom">
+          <ion-icon slot="start" name="mail-outline"></ion-icon>
+          <ion-label position="floating">Correo Electrónico</ion-label>
+          <ion-input 
+            type="email" 
+            [(ngModel)]="email" 
+            name="email" 
+            required
+            autocomplete="email"
+            inputmode="email"
+            clearInput>
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="full" class="ion-margin-bottom">
+          <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input 
+            type="password" 
+            [(ngModel)]="password" 
+            name="password" 
+            required
+            autocomplete="current-password"
+            clearInput>
+          </ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-button 
+        type="submit" 
+        expand="block" 
+        fill="clear"
+        shape="round"
+        [disabled]="isLoading || !email || !password"
+        class="ion-margin-top login-button">
+        <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+        <ion-text *ngIf="!isLoading">Ingresar</ion-text>
+      </ion-button>
+
+      <div class="ion-text-center ion-margin-top">
+        <ion-button (click)="irARegistro()" fill="clear" size="circle" class="register-button">
+          ¿No tienes cuenta? <strong> Regístrate</strong>
+        </ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>
