@@ -21,7 +21,7 @@
     ion-tab-button {
       --background: transparent;
       --color: #666;
-      --color-selected: #e1d41b;
+      --color-selected: #dd1212;
       --padding-bottom: 0;
       --padding-top: 0;
       min-width: 50px;
@@ -50,8 +50,8 @@
         transform: translateY(-8px);
         
         svg, ion-icon {
-          color: #dddd12;
-          stroke: #dddd12;
+          color: #dd1212;
+          stroke: #dd1212;
         }
         
         ion-label {
