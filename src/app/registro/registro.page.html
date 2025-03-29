@@ -41,7 +41,7 @@
         <ion-input label="Número de Teléfono" type="tel" placeholder="8888888888" formControlName="telefono"></ion-input>
       </ion-item>
       <ion-text color="danger" *ngIf="registroForm.get('telefono')?.invalid && registroForm.get('telefono')?.touched">
-        Ingresa un número de teléfono válido (10 dígitos).
+        Ingresa un número de teléfono válido (10 dígitos, solo números).
       </ion-text>
 
     </ion-list>
